@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Có bao nhiêu ngày?</title>
+</head>
+
+<body>
+    Nhập năm <input id="year" type="number">
+    Nhập tháng <input id="month" type="number">
+    <br>
+    <br>
+    <button onclick="Display()">Hiển thị số ngày</button>
+    <p id="hienthiNamNhuan"></p>
+    <p id="hienthiNgay"></p>
+    <script>
+        function Display() {
+            let MontH = Number(document.getElementById("month").value)
+            let YEar = Number(document.getElementById("year").value)
+            switch (MontH) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12:
+                    document.getElementById("hienthiNamNhuan").innerText = "Năm" + " " + YEar + " " + "KHÔNG PHẢI là năm nhuận"
+                    document.getElementById("hienthiNgay").innerText = "Tháng" + " " + MontH + " " + "có 31 ngày"
+                    document.getElementById("month").value = ""
+                    document.getElementById("year").value = ""
+                    break;
+                case 2:
+                    if (YEar % 100 == 0) {
+                        if (YEar % 400 == 0) { 
+                            document.getElementById("hienthiNamNhuan").innerText = "Năm" + " " + YEar + " " + "là NĂM NHUẬN"
+                            document.getElementById("hienthiNgay").innerText = "Tháng" + " " + MontH + " " + "có 29 ngày"
+                        } else {
+                            document.getElementById("hienthiNamNhuan").innerText = "Năm" + " " + YEar + " " + "KHÔNG PHẢI là NĂM NHUẬN"
+                            document.getElementById("hienthiNgay").innerText = "Tháng" + " " + MontH + " " + "có 28 ngày"
+                        }
+                    } else if (YEar % 4 == 0) {
+                        if (YEar % 100 == 0) {
+                            document.getElementById("hienthiNamNhuan").innerText = "Năm" + " " + YEar + " " + "KHÔNG PHẢI là NĂM NHUẬN"
+                            document.getElementById("hienthiNgay").innerText = "Tháng" + " " + MontH + " " + "có 28 ngày"
+                        } else {
+                            document.getElementById("hienthiNamNhuan").innerText = "Năm" + " " + YEar + " " + "là NĂM NHUẬN"
+                            document.getElementById("hienthiNgay").innerText = "Tháng" + " " + MontH + " " + "có 29 ngày"
+                        }
+                    } else {
+                        document.getElementById("hienthiNamNhuan").innerText = "Năm" + " " + YEar + " " + "KHÔNG PHẢI là NĂM NHUẬN"
+                        document.getElementById("hienthiNgay").innerText = "Tháng" + " " + MontH + " " + "có 28 ngày"
+                    }
+                    document.getElementById("month").value = ""
+                    document.getElementById("year").value = ""
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    document.getElementById("hienthiNamNhuan").innerText = "Năm" + " " + YEar + " " + "KHÔNG PHẢI là năm nhuận"
+                    document.getElementById("hienthiNgay").innerText = "Tháng" + " " + MontH + " " + "có 30 ngày"
+                    document.getElementById("month").value = ""
+                    break;
+                default:
+                    document.getElementById("hienthiNgay").innerText = "Nhập lại";
+                    document.getElementById("hienthiNamNhuan").innerText = "Năm" + " " + YEar + " " + "KHÔNG PHẢI là năm nhuận"
+                    break
+            }
+        }
+    </script>
+</body>
+
+</html>
