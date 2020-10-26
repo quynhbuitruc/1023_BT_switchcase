@@ -1,35 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tra cứu điểm tổng</title>
 </head>
+
 <body>
     <table>
         <tr>
-            <th colspan="2" style="text-size-adjust: ; "> Tính điểm Đại học Khối D</th>
+            <th colspan="2" style="font-size:larger"> Tính điểm Đại học Khối D</th>
         </tr>
         <tr>
             <td>Môn Toán</td>
-            <td></td>
+            <td><input id="maThs" type="number"></td>
         </tr>
         <tr>
             <td>Môn Văn</td>
-            <td></td>
+            <td><input id="liTerature" type="number"></td>
         </tr>
         <tr>
             <td>Môn Anh</td>
-            <td></td>
+            <td><input id="engLish" type="number"></td>
         </tr>
         <tr>
             <td>Khu vực</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><button> Tính điểm </button></td>
+            <td>
+                <select name="" id="Area">
+                    <option value="0.75">KV1</option>
+                    <option value="0.5">KV2-NT</option>
+                    <option value="0.25">KV2</option>
+                    <option value="0">KV3</option>
+                </select>
+            </td>
         </tr>
     </table>
-    <p id="display"></p>
+    <button id="Cal"> Tính điểm </button>
+    <p id="display" style="color: red;"></p>
+
+    <script>
+        document.getElementById("Cal").addEventListener("click", function () {
+            let mathS = Number(document.getElementById("maThs").value)
+            let Literature = Number(document.getElementById("liTerature").value)
+            let Eng = Number(document.getElementById("engLish").value)
+            let area = Number(document.getElementById("Area").value)
+            let Sum = mathS + Literature + Eng + area
+            document.getElementById("display").innerHTML = "Tổng điểm ĐH khố D của bạn là:" + " " + Sum
+        })
+    </script>
 </body>
+
 </html>
